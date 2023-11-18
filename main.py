@@ -5,7 +5,8 @@ class downloadAnyCodec:
 
     def showAllVideoInPlaylist(self, link_on_playlist: str):
         p = Playlist(link_on_playlist)
-        print(*p, sep="\n")
+        
+        return p
 
     
     def showAllCodec(self, link_on_video: str, type: str):
@@ -16,10 +17,10 @@ class downloadAnyCodec:
             elif type == "audio":
                 ans = yt.streams.filter(type="audio")
 
-            print(*ans, sep="\n")
+            return ans
 
         except Exception:
-            print("Ошибка при работе с YouTube")
+            return "Ошибка при работе с YouTube"
 
     def downloadThisVideo(self, res: str, link_on_video: str):
         yt = YouTube(link_on_video)
